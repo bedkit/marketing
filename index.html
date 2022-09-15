@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="author" content="Georges Duverger" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="backslash, theme" />
+    <meta name="description" content="Theme for technologists" />
+
+    <style>
+      @font-face {
+        font-family: "Souvenir";
+        src: url("https://www.arcana.computer/fonts/souvenir.woff2")
+          format("woff2");
+      }
+
+      a,
+      abbr,
+      acronym,
+      address,
+      applet,
+      article,
+      aside,
+      audio,
+      b,
+      big,
+      blockquote,
+      body,
+      canvas,
+      caption,
+      center,
+      cite,
+      code,
+      dd,
+      del,
+      details,
+      dfn,
+      div,
+      dl,
+      dt,
+      em,
+      embed,
+      fieldset,
+      figcaption,
+      figure,
+      footer,
+      form,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      header,
+      hgroup,
+      html,
+      i,
+      iframe,
+      img,
+      ins,
+      kbd,
+      label,
+      legend,
+      li,
+      mark,
+      menu,
+      nav,
+      object,
+      ol,
+      output,
+      p,
+      pre,
+      q,
+      ruby,
+      s,
+      samp,
+      section,
+      small,
+      span,
+      strike,
+      strong,
+      sub,
+      summary,
+      sup,
+      table,
+      tbody,
+      td,
+      tfoot,
+      th,
+      thead,
+      time,
+      tr,
+      tt,
+      u,
+      ul,
+      var,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:after,
+      blockquote:before,
+      q:after,
+      q:before {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      /* Backslash */
+
+      html {
+        background-color: white;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: "IBM Plex Mono", monospace;
+        line-height: 1.5;
+        color: black;
+      }
+
+      h1,
+      h2,
+      h3 {
+        /*text-transform: uppercase;*/
+      }
+
+      a {
+        border-bottom: 1px solid rgba(0, 0, 255, 0.33);
+        text-decoration: none;
+        color: blue;
+      }
+
+      a:hover {
+        border-bottom-color: rgba(0, 0, 255, 1);
+      }
+
+      body {
+        padding: 1rem;
+        max-width: 600px;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-style: italic;
+      }
+
+      h3 {
+        font-weight: bold;
+        margin-top: 4rem;
+      }
+
+      ul {
+        list-style-type: circle;
+        padding-left: 1.5rem;
+      }
+
+      code {
+        background-color: #eee;
+        padding: 1rem;
+        width: max-content;
+        border-radius: 1rem;
+        white-space: pre;
+        display: block;
+      }
+
+      em {
+        font-style: italic;
+      }
+
+      ol {
+        list-style-type: decimal;
+        padding-left: 2rem;
+      }
+
+    strong {
+        font-weight: bold;
+    }
+
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    p, code, ul {
+        margin-bottom: 1rem;
+    }
+
+    .footer {
+        margin-top: 2rem;
+        color: #aaa;
+    }
+
+    .footer a {
+        color: #666;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .footer a:hover {
+        border-bottom-color: #666;
+    }
+
+    .highlight {
+        background: #fef9c3;
+    }
+
+    input {
+        font-family: 'IBM Plex Mono';
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    input[type="submit"] {
+        color: white;
+        background: blue;
+        padding: 0.5rem;
+        font-size: 14px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Bedkit</h1>
+    <h2>
+      Embed tweets (and other stuff, too) without killing your site's
+      performance. Launching December 1, 2022.
+    </h2>
+
+    <h3>TL;DR</h3>
+    <p>Bedkit is a REST API that takes URLs as inputs and returns semantic HTML (or in Tailwind or inlined CSS, if you prefer). Use it instead of first-party social media embeds to improve your website's performance and SEO. Twitter support is launching this winter, with Instagram, Tiktok, and Facebook coming in Q1 2023. <a href="https://buy.stripe.com/aEU3dk9YRbhKd5CcMN">Buy now for 33% off with promo code <strong>PREORDER</strong>.</a></p>
+
+
+    <h3>Subscribe for updates</h3>
+    <form
+        action="https://buttondown.email/api/emails/embed-subscribe/bedkit"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.email/bedkit', 'popupwindow')"
+        class="embeddable-buttondown-form"
+        >
+        <input type="email" name="email" id="bd-email" placeholder="you@gmail.com" />
+        <input type="submit" value="Subscribe" />
+    </form>
+
+
+    <h3>Most social media embeds are bad</h3>
+    <p>
+        Let's say you want to embed a <a href="https://twitter.com/stephenasmith/status/603384079044759552?lang=en">tweet</a> on your site. You grab a snippet that looks like this from Twitter:
+    </p>
+    <code>&lt;blockquote class=&quot;twitter-tweet&quot;&gt;
+    &lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        TAke a look, y&amp;#39;all: IMG_4346.jpeg
+    &lt;/p&gt;
+    &amp;mdash; Stephen A Smith (@stephenasmith)
+    &lt;a href=&quot;https://twitter.com/stephenasmith/status/603384079044759552?ref_src=twsrc%5Etfw&quot;&gt;
+        May 27, 2015
+    &lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async
+    src=&quot;https://platform.twitter.com/widgets.js&quot;
+    charset=&quot;utf-8&quot;&gt;
+&lt;/script&gt;</code>
+    <p>
+        This is... not ideal. It's completely unstyled (and missing a bunch of data) until that JavaScript snippet loads — and as soon as that JavaScript snippet loads a whole <strong>bunch</strong> of things happen:
+    </p>
+    <ol>
+        <li>Your <a href="#">Lighthouse score</a> drops by 17 points</li>
+        <li>Your <strong>Time-to-interactive</strong> drops by 4 seconds</li>
+        <li>Your accessibility plummets</li>
+        <li>Your reader's privacy goes out the window (unless they have an adblocker on, at which point they can't even read the Tweet!)</li>
+    </ol>
+
+    <h3>Bedkit is better</h3>
+    <p>I've spent the past for years building a <a href="https://buttondown.email">newsletter tool</a> which means I've spent a lot of time trying to get HTML-friendly versions of rich content. What I wanted was a <em>clean</em> version of embeds that wasn't just an iframe — I wanted something that was portable, accessible, semantic, and performant.</p>
+    <p>So I built one, and now I'm turning it into its own API so you can use it too.</p>
+    <p>Instead of that gross snippet, imagine something like this:</p>
+    <code>
+// beautiful example HTML tktktk
+    </code>
+    <p>
+        Yes, that's a lot of HTML.... but it's <em>just</em> HTML. It's lightning-quick to render, it's portable and stylable and hackable to your heart's content and your reader's delight.
+    </p>
+
+    <h3>Why you shouldn't roll your own</h3>
+    <p>
+        Tweets are <em>complicated</em>. Here's a short list of things you need to handle:
+    </p>
+    <ul class="two-column">
+        <li>Dark mode</li>
+        <li>Quote tweets</li>
+        <li>Videos</li>
+        <li>Images</li>
+        <li>Threads</li>
+        <li>Polls</li>
+        <li>Spaces</li>
+        <li>Internationalization</li>
+        <li>Hashtags</li>
+        <li>a11y</li>
+    </ul>
+    <p>It's... a lot of stuff, and those things have a certain level of fractal complication (quote tweeting a tweet with multiple images! threads with deleted tweets!), and you're going to spend <em>so</em> much time debugging esoteric Twitter API edge cases instead of actually moving your business forward. Let <strong>Bedkit</strong> handle it instead.</p>
+
+    <h3>What an API request will look like</h3>
+    <p>Pretty simple, really:</p>
+    <code>{
+    "url": "https://twitter.com/jmduke/status/1568620789057847297",
+    "style": "tailwind",
+}</code>
+
+    <h3>Open core</h3>
+    <p>
+        I will be open sourcing the core rendering pipelines of Bedkit. I haven't yet, because the API is still in flux. This will be structured as a series of individual Python packages (one per source) that you can install and (with the right API keys from Twitter or whomever) run yourself.
+    </p>
+
+    <a id="pricing"></a>
+    <h3>Pricing</h3>
+    <p>For individuals and organizations wanting to use Bedkit in a commercial context, I will be offering two plans:</p>
+    <ul>
+      <li><strong><a href="https://buy.stripe.com/aEU3dk9YRbhKd5CcMN">Personal ($9/mo or $90/yr)</a></strong>, for up to one hundred requests per month</li>
+      <li><strong><a href="https://buy.stripe.com/eVa3dkfjbbhK5Da5kk">Professional ($199/mo or $1990/yr)</a></strong>, for unlimited requests</li>
+    </ul>
+    <p>The commercial edition of Bedkit will be offering some functionality missing from the open core. This includes:</p>
+    <ul class="two-column">
+        <li>Web interface</li>
+        <li>Caching</li>
+        <li>Bulk rendering</li>
+        <li>99.95% Uptime SLA</li>
+        <li>Image rendering</li>
+        <li>Zapier support</li>
+    </ul>
+    <p><span class="highlight">You can pre-order a year of Bedkit at any plan at a <strong>⅓ discount</strong> by using the coupon code <strong>PREORDER</strong></strong>. This offer expires on December 1st.</span></p>
+
+    <h3>Subscribe for updates</h3>
+    <form
+        action="https://buttondown.email/api/emails/embed-subscribe/bedkit"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.email/bedkit', 'popupwindow')"
+        class="embeddable-buttondown-form"
+        >
+        <input type="email" name="email" id="bd-email" placeholder="you@gmail.com" />
+        <input type="submit" value="Subscribe" />
+    </form>
+
+
+    <h3>Any questions?</h3>
+    <p>I tried to cover most of the bases here but if you have any questions, please <a href="#">email me</a>.</p>
+
+    <div class="footer">
+        © 2022, Bedkit LLC.<br />
+        I hope you have a nice day.<br />
+        Feel free to follow on <a href="https://twitter.com/bedkitapp">Twitter</a> and/or <a href="https://github.com/bedkit">GitHub</a>, though there's not much there at the moment.
+    </div>
+  </body>
+</html>
